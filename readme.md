@@ -10,6 +10,24 @@ Este projeto contém testes automatizados para a API ServeRest, cobrindo os prin
 * Faker.js
 * JavaScript
 
+## CI/CD
+
+O projeto possui integração contínua através do GitHub Actions.
+
+A pipeline é executada automaticamente em:
+
+- Push para branch main
+- Pull Requests para branch main
+
+Etapas executadas:
+
+1. Checkout do código
+2. Instalação das dependências
+3. Execução dos testes Cypress
+4. Geração e publicação dos relatórios de execução
+
+Os relatórios ficam disponíveis como artefatos da execução no GitHub Actions.
+
 
 ### 📋 Documentação
 
@@ -35,6 +53,8 @@ npm i
 ```
 
 Execute o comando para concluir a instalação do cypress e exibição da interface:
+
+Escolha o navegador e clique no test para execução!
 
 ```
 npm run open
