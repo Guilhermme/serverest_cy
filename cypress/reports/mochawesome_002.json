@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T14:20:22.167Z",
+    "end": "2026-06-04T14:20:30.412Z",
+    "duration": 8245,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6106d16c-56c7-4d13-a173-9a846547d38f",
+      "title": "",
+      "fullFile": "cypress/e2e/validacoes/atualizar_usuario_inexistente.cy.js",
+      "file": "cypress/e2e/validacoes/atualizar_usuario_inexistente.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90cce791-ddc7-4096-ba75-00e92c7853b4",
+          "title": "Atualização de usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar um novo usuário ao informar um ID inexistente",
+              "fullTitle": "Atualização de usuário Deve criar um novo usuário ao informar um ID inexistente",
+              "timedOut": null,
+              "duration": 8232,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)();\ncy.request({\n  method: 'PUT',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios/nao_inexistente`,\n  body: usuario\n}).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body.message).to.eq('Cadastro realizado com sucesso');\n  expect(response.body._id).to.exist;\n});",
+              "err": {},
+              "uuid": "98bb7d28-f65e-482f-b90c-46035581ec8a",
+              "parentUUID": "90cce791-ddc7-4096-ba75-00e92c7853b4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "98bb7d28-f65e-482f-b90c-46035581ec8a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8232,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

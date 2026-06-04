@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-04T14:21:07.471Z",
+    "end": "2026-06-04T14:21:23.065Z",
+    "duration": 15594,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a97bf1d-d65c-4bd8-9550-6ef5ecb6917d",
+      "title": "",
+      "fullFile": "cypress/e2e/validacoes/validar_campos_obrigatorios.cy.js",
+      "file": "cypress/e2e/validacoes/validar_campos_obrigatorios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6b590054-b0d6-4f00-bb1d-43c2782fd1f9",
+          "title": "Validação de campos obrigatórios",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Não deve permitir cadastro sem nome",
+              "fullTitle": "Validação de campos obrigatórios Não deve permitir cadastro sem nome",
+              "timedOut": null,
+              "duration": 6935,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)({\n  nome: ''\n});\ncy.request({\n  method: 'POST',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios`,\n  body: usuario,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.nome).to.eq('nome não pode ficar em branco');\n});",
+              "err": {},
+              "uuid": "b5f941c8-eb64-4a42-897a-ae5a69e1c106",
+              "parentUUID": "6b590054-b0d6-4f00-bb1d-43c2782fd1f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Não deve permitir cadastro sem email",
+              "fullTitle": "Validação de campos obrigatórios Não deve permitir cadastro sem email",
+              "timedOut": null,
+              "duration": 217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)({\n  email: ''\n});\ncy.request({\n  method: 'POST',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios`,\n  body: usuario,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.email).to.eq('email não pode ficar em branco');\n});",
+              "err": {},
+              "uuid": "b9e99cde-fab3-428c-a105-0155675ab24b",
+              "parentUUID": "6b590054-b0d6-4f00-bb1d-43c2782fd1f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Não deve permitir cadastro sem password",
+              "fullTitle": "Validação de campos obrigatórios Não deve permitir cadastro sem password",
+              "timedOut": null,
+              "duration": 359,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)({\n  password: ''\n});\ncy.request({\n  method: 'POST',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios`,\n  body: usuario,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.password).to.eq('password não pode ficar em branco');\n});",
+              "err": {
+                "message": "AssertionError: expected 503 to equal 400",
+                "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://qa-gerador-de-pedidos/./cypress/e2e/validacoes/validar_campos_obrigatorios.cy.js:56:33)\n    at getRet (http://localhost:42777/__cypress/runner/cypress_runner.js:122946:20)\n    at tryCatcher (http://localhost:42777/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:42777/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:42777/__cypress/runner/cypress_runner.js:122957:66)\n    at Context.then (http://localhost:42777/__cypress/runner/cypress_runner.js:123208:21)",
+                "diff": "- 503\n+ 400\n"
+              },
+              "uuid": "42969137-450b-4deb-a964-26dbe7b48156",
+              "parentUUID": "6b590054-b0d6-4f00-bb1d-43c2782fd1f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Não deve permitir cadastro sem administrador",
+              "fullTitle": "Validação de campos obrigatórios Não deve permitir cadastro sem administrador",
+              "timedOut": null,
+              "duration": 8013,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)({\n  administrador: ''\n});\ncy.request({\n  method: 'POST',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios`,\n  body: usuario,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.administrador).to.eq(\"administrador deve ser 'true' ou 'false'\");\n});",
+              "err": {},
+              "uuid": "16480f28-be68-4f74-8621-e6ddb4c5ad5f",
+              "parentUUID": "6b590054-b0d6-4f00-bb1d-43c2782fd1f9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b5f941c8-eb64-4a42-897a-ae5a69e1c106",
+            "b9e99cde-fab3-428c-a105-0155675ab24b",
+            "16480f28-be68-4f74-8621-e6ddb4c5ad5f"
+          ],
+          "failures": [
+            "42969137-450b-4deb-a964-26dbe7b48156"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15524,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

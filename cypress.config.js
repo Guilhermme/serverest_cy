@@ -22,6 +22,15 @@ function setupNodeEvents (on, config) {
 }
 
 module.exports = defineConfig({
+  reporter: 'mochawesome',
+
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true
+  },
+
   video: false,
   viewportHeight: 768,
   viewportWidth: 1366,
@@ -29,7 +38,9 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   trashAssetsBeforeRuns: false,
   screenshotOnRunFailure: true,
+
   env: {},
+
   e2e: {
     setupNodeEvents,
     specPattern: 'cypress/e2e/**/*.cy.js',

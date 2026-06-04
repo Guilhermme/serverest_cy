@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T14:20:16.610Z",
+    "end": "2026-06-04T14:20:18.141Z",
+    "duration": 1531,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9c7b7701-60a7-48c9-b17d-c591a40b3f88",
+      "title": "",
+      "fullFile": "cypress/e2e/crud_usuarios.cy.js",
+      "file": "cypress/e2e/crud_usuarios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "750bcb58-3542-461b-8692-b9330f14d299",
+          "title": "Teste na API serverest.dev",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve realizar CRUD completo de usuário",
+              "fullTitle": "Teste na API serverest.dev Deve realizar CRUD completo de usuário",
+              "timedOut": null,
+              "duration": 1516,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = (0, _user.createUser)();\ncy.request({\n  method: 'POST',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios`,\n  body: usuario\n}).then(response => {\n  expect(response.status).to.eq(201);\n  const userId = response.body._id;\n  // Consulta o usuário recém-criado\n  return cy.request({\n    method: 'GET',\n    url: `${Cypress.expose('url_serve_rest')}/usuarios/${userId}`\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.nome).to.eq(usuario.nome);\n    expect(response.body.email).to.eq(usuario.email);\n    expect(response.body.administrador).to.eq(usuario.administrador);\n    // Atualiza os dados do usuário criado\n    return cy.request({\n      method: 'PUT',\n      url: `${Cypress.expose('url_serve_rest')}/usuarios/${userId}`,\n      body: _objectSpread(_objectSpread({}, usuario), {}, {\n        nome: 'Usuário Atualizado'\n      })\n    });\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    // Deletar o usuário criado\n    return cy.request({\n      method: 'DELETE',\n      url: `${Cypress.expose('url_serve_rest')}/usuarios/${userId}`\n    });\n  }).then(response => {\n    expect(response.status).to.eq(200);\n  });\n});",
+              "err": {},
+              "uuid": "738e1923-f29f-4acf-b50a-2cfb0bdcfd9c",
+              "parentUUID": "750bcb58-3542-461b-8692-b9330f14d299",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "738e1923-f29f-4acf-b50a-2cfb0bdcfd9c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1516,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

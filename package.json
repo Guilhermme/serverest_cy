@@ -10,7 +10,9 @@
     "lint-fix": "npm run lint -- --fix",
     "open": "cypress open",
     "test:headless": "cypress run",
-    "feature": "cypress run --headless --browser chrome --spec "
+    "test:report": "npm run test:headless && npm run report:merge && npm run report:generate",
+    "feature": "cypress run --headless --browser chrome --spec ",
+    "clean:reports": "rimraf cypress/reports"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,11 @@
     "cypress-wait-until": "^3.0.2",
     "eslint": "^8.55.0",
     "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-mocha": "^10.2.0"
+    "eslint-plugin-mocha": "^10.2.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "rimraf": "^6.1.3"
   },
   "dependencies": {
     "cypress-intercept-formdata": "^0.6.0",

@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-04T14:20:31.380Z",
+    "end": "2026-06-04T14:20:46.338Z",
+    "duration": 14958,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "91677593-b128-4fb6-81c6-4092831bcae5",
+      "title": "",
+      "fullFile": "cypress/e2e/validacoes/busca_usuario_inexistente.cy.js",
+      "file": "cypress/e2e/validacoes/busca_usuario_inexistente.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "433109b5-6e37-4596-b7d2-2b567c754e09",
+          "title": "Busca de usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve retornar erro ao buscar usuário inexistente",
+              "fullTitle": "Busca de usuário Deve retornar erro ao buscar usuário inexistente",
+              "timedOut": null,
+              "duration": 7475,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuarioIdInexistente = '8dsa987dsa98d7a9';\ncy.request({\n  method: 'GET',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios/${usuarioIdInexistente}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.message).to.eq('Usuário não encontrado');\n});",
+              "err": {},
+              "uuid": "a4843ea5-5f01-40b9-8149-b4fa7c9b1b56",
+              "parentUUID": "433109b5-6e37-4596-b7d2-2b567c754e09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve retornar erro ao buscar usuário com ID inválido",
+              "fullTitle": "Busca de usuário Deve retornar erro ao buscar usuário com ID inválido",
+              "timedOut": null,
+              "duration": 7457,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuarioIdInexistente = 'id_inexistente';\ncy.request({\n  method: 'GET',\n  url: `${Cypress.expose('url_serve_rest')}/usuarios/${usuarioIdInexistente}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.id).to.eq('id deve ter exatamente 16 caracteres alfanuméricos');\n});",
+              "err": {},
+              "uuid": "c55e3d23-7f70-4500-8b76-a546f939c742",
+              "parentUUID": "433109b5-6e37-4596-b7d2-2b567c754e09",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a4843ea5-5f01-40b9-8149-b4fa7c9b1b56",
+            "c55e3d23-7f70-4500-8b76-a546f939c742"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14932,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
