@@ -1,4 +1,4 @@
-import { createUser } from '../support/factories/user.factory'
+import { createUser } from '../../support/factories/user.factory'
 
 describe('Validação de campos obrigatórios', () => {
 
